@@ -12,23 +12,36 @@ import Logo from './Content/Logo.js';
 import './App.css';
 //Components
 import About from './About/About';
+import Home from './Home/Home';
 
-export default class App extends Component{
+export default class App extends React.Component{
+
+  constructor(props){
+    super(props);
+    this.setSiteTitle = (title)=>{
+      this.setState({
+        SiteTitle: title,
+      });
+    }
+  }
+
+  state = {
+    SiteTitle: "",
+  };
 
   render (){
     return(
       <div className="App">
         <div id="AppContent">
-          <Logo></Logo>
+          <Logo title={this.state.SiteTitle}></Logo>
           <Router>
             {/*Navigation will go here*/}
             <Switch>
               <Route exact path="/">
-                {/* {props.SiteTitle = "Home"} */}
+                <Home setTitle={this.setSiteTitle}></Home>
               </Route>
               <Route path="/About">
-                {/* {props.SiteTitle="About"} */}
-                <About></About>
+                <About setTitle={this.setSiteTitle}></About>
               </Route>
             </Switch>
           </Router>
