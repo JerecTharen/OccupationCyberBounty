@@ -1,6 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 
-const About = () =>{
+const About = (props) =>{
+
+    useEffect(()=>{
+        props.setTitle("About");
+    });
+
     return(
         <div id="About">
             <p>
