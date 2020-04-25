@@ -3,7 +3,8 @@ import React, {useEffect} from "react";
 const About = (props) =>{
 
     useEffect(()=>{
-        props.setTitle("About");
+        //props.setTitle("About");
+        return;
     });
 
     return(
