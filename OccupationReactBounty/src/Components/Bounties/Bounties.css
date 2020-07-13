@@ -1,0 +1,9 @@
+#BountyList{
+    width: 30%;
+    text-align: left;
+}
+#Bounties{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

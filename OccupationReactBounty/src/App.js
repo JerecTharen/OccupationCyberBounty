@@ -4,35 +4,34 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useHistory
+  Link
 } from "react-router-dom";
 //Site Content
-import TitleBar from './Components/TitleBar/TitleBar.js';
 import './App.css';
 //Components
 import About from './Components/About/About';
 import Home from './Components/Home/Home';
+import Bounties from './Components/Bounties/Bounties';
 
 const App = () => {
-
-  const history = useHistory();
-
-  const returnHome = ()=>{
-    history.push("/home");
-  }
 
   return(
     <div className="App">
       <div id="AppContent">
         <Router>
-          {/*Navigation will go here*/}
+          <div id="NavBar">
+            <Link to="/">Home</Link>
+            <Link to="/Bounties">Bounties</Link>
+            <Link to="/About">About</Link>
+          </div>
           <Switch>
             <Route exact path="/">
-              <TitleBar title={"Home"} goHome={returnHome}></TitleBar>
               <Home></Home>
             </Route>
+            <Route path="/Bounties">
+              <Bounties></Bounties>
+            </Route>
             <Route path="/About">
-              <TitleBar title={"About"} goHome={returnHome}></TitleBar>
               <About></About>
             </Route>
           </Switch>
